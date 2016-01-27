@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<ui:composition template="WEB-INF/templates/adminUniversityTemp.xhtml">
+    <ui:define name="content">
+
+        #{adminUniversityBean.createNewGroup()}
+
+        <h1>New Book</h1>
+        <br/>
+        <br/>
+        <br/>
+        <div class="content">
+            <h:form>
+
+                <h:panelGrid id="grid" columns="3" columnClasses="wd, wd, wd">
+
+                    <p:outputLabel for="bookName" value="Book Name:"/>
+                    <p:inputText id="bookName"
+                                 value="#{bookBean.name}"
+                                 required="true">
+                        <f:validateLength minimum="5" maximum="127"/>
+                    </p:inputText>
+                    <p:message for="bookName" style="color:red"/>
+
+                    <p:outputLabel for="bookAuthor" value="Book Author:"/>
+                    <p:inputText id="bookAuthor"
+                                 value="#{bookBean.author}"
+                                 required="true">
+                        <f:validateLength minimum="5" maximum="127"/>
+                    </p:inputText>
+                    <p:message for="bookAuthor" style="color:red"/>
+
+                    <p:outputLabel for="bookPublishingYear" value="Book Author:"/>
+                    <p:inputText id="bookPublishingYear"
+                                 value="#{bookBean.publishingYear}"
+                                 required="true">
+                        <f:validateLength minimum="5" maximum="127"/>
+                    </p:inputText>
+                    <p:message for="bookPublishingYear" style="color:red"/>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p:commandButton update="grid" value="Submit"
+                                     action="#{bookController.addBook}"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

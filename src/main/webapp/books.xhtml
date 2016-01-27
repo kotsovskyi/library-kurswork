@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <ui:composition template="WEB-INF/templates/adminUniversityTemp.xhtml">
+
+        <ui:define name="content">
+            <br/>
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true"/>
+
+                <p:dataTable id="books" value="#{bookController.getBooks()}" var="book"
+                             editable="true" style="margin-bottom:20px">
+
+                    <f:facet name="header">Усі книжки</f:facet>
+
+                    <p:ajax event="rowEdit" listener="#{bookController.onBookEdit}" update=":form:msgs" />
+                    <p:ajax event="rowEditCancel" listener="#{bookController.onBookCancel}" update=":form:msgs" />
+
+                    <p:column headerText="ISBN">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.bookId}" /></f:facet>
+                            <f:facet name="input">
+                                <h:outputText id="ISBN" value="#{book.bookId}" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Назва">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.title}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{book.title}" required="true" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Автор">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.author}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{book.author}" required="true" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Рік друку">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.publishedDate}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{book.publishedDate}" required="true" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Розташування">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.rackNumber}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{book.rackNumber}" required="true" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Ціна">
+                        <p:cellEditor>
+                            <f:facet name="output"><h:outputText value="#{book.price}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{book.price}" required="true" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column style="width:32px">
+                        <p:rowEditor />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

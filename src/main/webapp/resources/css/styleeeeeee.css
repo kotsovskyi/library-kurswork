@@ -1,0 +1,95 @@
+a {
+	color: black;
+	font-weight: bold;
+	font-size: 1.4em;
+	font-style: normal;
+}
+
+div {
+	color: black;
+	text-align: center;
+}
+
+.header {
+	background-color: #e1ffe1;
+	background-image: url("resources/img/fish.jpg");
+}
+
+.footer {
+	background-color: green;
+	color: red;
+	height: 200;
+}
+
+.totalPrice {
+	color: red;
+	font-size: 300%;
+}
+
+.contentAdmin {
+	text-align: left;
+	color: red;
+}
+
+h2 {
+	color: #ff80ff;
+}
+
+.dateInput {
+	display: inline;
+}
+
+.dataTable {
+	display: inline-block;
+}
+
+.dataTableLeft {
+	display: inline-block;
+	position: left;
+}
+
+.dataTableRight {
+	display: inline-block;
+	position: right;
+}
+
+.dataInline {
+	display: inline-block;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+}
+
+.content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+.wd {
+	width: 350px;
+}
+
+.text-center {
+	text-align: center;
+	width: 600px;
+}
+
+.minH {
+	min-height: 510px;
+}
+
+.imgLeft {
+	position: left;
+}
+
+.elCentr {
+	margin: 0 auto;
+	width: 250px;
+}
+
+.admin{
+min-height: 300px; width: 400px; text-align: center; display: block;
+}

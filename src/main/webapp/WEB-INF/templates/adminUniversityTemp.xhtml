@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>KPI Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'/>
+
+    <h:outputStylesheet library="css" name="font-awesome.min.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="templatemo-style.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+
+    <h:outputScript library="js" name="jquery-1.11.2.min.js"/>
+</h:head>
+<h:body>
+        <p:panel rendered='#{!studentEnterBean.login.equals("admin")}'>
+            #{studentEnterBean.backToLoginPage()}
+        </p:panel>
+
+                <!--<ui:insert name="content">-->
+                    <!--<ui:include src="content.xhtml"/>-->
+                <!--</ui:insert>-->
+
+    <div class="templatemo-flex-row">
+        <div class="templatemo-sidebar">
+            <header class="templatemo-site-header">
+                <div class="square"></div>
+                <h1>Бібліотекар</h1>
+            </header>
+
+            <div class="profile-photo-container">
+                <img src="img/profile-photo.jpg" alt="Profile Photo" class="img-responsive"/>
+                <div class="profile-photo-overlay"></div>
+            </div>
+
+            <div class="mobile-menu-icon">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav class="templatemo-left-nav">
+                <ul id="manage-panel">
+                    <li><a href="../../index.xhtml"><i class="fa fa-home fa-fw"></i>Домашня</a></li>
+                    <li><a href="search-users.html">
+                        <i class="fa fa-search  fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
+                        <i class="fa fa-user-secret fa-fw"></i>Пошук читача</a></li>
+                    <li><a href="search-book.html">
+                        <i class="fa fa-search fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
+                        <i class="fa fa-book fa-fw"></i>Пошук книжки</a>
+                    </li>
+                    <li><a href="registration.html">
+                        <i class="fa fa-plus fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
+                        <i class="fa fa-user fa-fw"></i>Реєстрація читача</a>
+                    </li>
+                    <li><a href="manage-users.html" class="active">
+                        <i class="fa fa-plus fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
+                        <i class="fa fa-book fa-fw"></i>Додати книжку</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="templatemo-content col-1 light-gray-bg">
+            <!-- HEADER -->
+            <ui:insert name="header">
+                <ui:include src="adminUniversityHeader.xhtml"/>
+            </ui:insert>
+
+            <!-- Main content -->
+            <div class="templatemo-content-container">
+                <div class="templatemo-content-widget no-padding">
+                    <div class="panel panel-default table-responsive">
+
+                        <ui:insert name="content">
+                            <p style="margin-top: 50px; margin-bottom: 50px;"> Hello !!!</p>
+                        </ui:insert>
+
+                    </div>
+                </div>
+
+                <!--Посторінковий вивід-->
+                <div class="pagination-wrap">
+                    <ul class="pagination">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa fa-play"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <ui:insert name="footer">
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
+    </div>
+</h:body>
+</html>
