@@ -3,10 +3,12 @@ package com.bionic.edu.controller;
 import com.bionic.edu.bean.BookBean;
 import com.bionic.edu.dao.BookDao;
 import com.bionic.edu.entity.Book;
+import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -23,8 +25,19 @@ public class BookController {
     @Inject
     private BookBean bookBean;
 
+    private  List<Book> books;
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
     public List<Book> getBooks() {
-        return bookDao.getAll();
+        return books;
+    }
+
+    @PostConstruct
+    public void init() {
+        books = bookDao.getAll();
     }
 
     @Transactional
@@ -48,5 +61,15 @@ public class BookController {
     public void onBookCancel(RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Редагування відмінено", Long.toString(((Book) event.getObject()).getBookId()));
         FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onCellEdit(CellEditEvent event) {
+        Object oldValue = event.getOldValue();
+        Object newValue = event.getNewValue();
+
+        if(newValue != null && !newValue.equals(oldValue)) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
     }
 }

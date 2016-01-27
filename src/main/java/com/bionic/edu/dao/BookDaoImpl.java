@@ -60,23 +60,16 @@ public class BookDaoImpl implements BookDao {
     @Override
     @Transactional
     public void update(Book book) {
-//        book.setTitle("roman");
-//
-//        Query querry = em.createNativeQuery("UPDATE BOOK  SET title = ?, author = ?, published_date = ?," +
-//                " price = ?, rack_number = ? where book_id = " + book.getBookId());
-//
-//
-//        //querry.setParameter(1, book.getBookId());
-//        querry.setParameter(1, book.getTitle());
-//        querry.setParameter(2, book.getAuthor());
-//        querry.setParameter(3, book.getPublishedDate());
-//        querry.setParameter(4, book.getPrice());
-//        querry.setParameter(5, book.getRackNumber());
-//
-////        querry.setFlushMode(FlushModeType.COMMIT);
-//        int k = querry.executeUpdate();
+        Query querry = em.createNativeQuery("UPDATE BOOK  SET title = ?, author = ?, published_date = ?," +
+                " price = ?, rack_number = ? where book_id = " + book.getBookId());
 
-        em.merge(book);
+        querry.setParameter(1, book.getTitle());
+        querry.setParameter(2, book.getAuthor());
+        querry.setParameter(3, book.getPublishedDate());
+        querry.setParameter(4, book.getPrice());
+        querry.setParameter(5, book.getRackNumber());
+
+        querry.executeUpdate();
     }
 
     @Override

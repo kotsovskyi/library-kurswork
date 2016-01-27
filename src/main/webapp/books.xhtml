@@ -15,12 +15,13 @@
             <h:form id="form">
                 <p:growl id="msgs" showDetail="true"/>
 
+
                 <p:dataTable id="books" value="#{bookController.getBooks()}" var="book"
                              editable="true" style="margin-bottom:20px">
 
                     <f:facet name="header">Усі книжки</f:facet>
 
-                    <p:ajax event="rowEdit" listener="#{bookController.onBookEdit}" update=":form:msgs" />
+                    <p:ajax event="rowEdit" listener="#{bookController.onBookEdit}" process="books" update=":form:msgs" />
                     <p:ajax event="rowEditCancel" listener="#{bookController.onBookCancel}" update=":form:msgs" />
 
                     <p:column headerText="ISBN">
