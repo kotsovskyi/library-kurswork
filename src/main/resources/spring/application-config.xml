@@ -12,7 +12,7 @@
 
 	<description>Example configuration to get you started.</description>
 
-	<context:component-scan base-package="com.bionic.edu" />
+	<context:component-scan base-package="com.kotsovskyi.edu" />
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
@@ -24,12 +24,12 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="packagesToScan">
 			<array>
-				<value>com.bionic.edu.entity</value>
-				<value>com.bionic.edu</value>
-				<value>com.bionic.edu.dao</value>
-				<value>com.bionic.edu.service</value>
-				<value>com.bionic.edu.bean</value>
-				<value>com.bionic.edu.controller</value>
+				<value>com.kotsovskyi.edu.entity</value>
+				<value>com.kotsovskyi.edu</value>
+				<value>com.kotsovskyi.edu.dao</value>
+				<value>com.kotsovskyi.edu.service</value>
+				<value>com.kotsovskyi.edu.bean</value>
+				<value>com.kotsovskyi.edu.controller</value>
 			</array>
 		</property>
 		<property name="dataSource" ref="dataSource"/>

@@ -11,72 +11,50 @@
     <ui:composition template="WEB-INF/templates/adminUniversityTemp.xhtml">
 
         <ui:define name="content">
-            <h2>All the students</h2>
-
-            #{adminUniversityBean.refreshListOfStudents()}
+            <br/>
 
             <h:form id="form">
                 <p:growl id="msgs" showDetail="true"/>
 
-                <p:dataTable id="Students" value="#{adminUniversityBean.allStudents}"
-                             var="students" editable="true" style="margin-bottom:20px">
-                    <f:facet name="header">
-                        All the customers
-                    </f:facet>
+                <p:dataTable id="members" value="#{memberController.getMembers()}"
+                             var="member" editable="true" style="margin-bottom:20px">
+                    <f:facet name="header">Усі читачі</f:facet>
 
-                    <p:ajax event="rowEdit" listener="#{adminUniversityBean.onRowEdit}"/>
-                    <p:ajax event="rowEditCancel"
-                            listener="#{adminUniversityBean.onRowCancel}"/>
-
-                    <p:column headerText="Name">
+                    <p:column headerText="Паспорт">
                         <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputLabel value="#{students.students_Name}"/>
-                            </f:facet>
+                            <f:facet name="output"><h:outputText value="#{member.passport}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputLabel value="#{students.students_Name}"/>
+                                <h:outputText id="passport" value="#{member.passport}" />
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
 
-                    <p:column headerText="Login">
+                    <p:column headerText="Ім'я">
                         <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputLabel value="#{students.students_Login}"/>
-                            </f:facet>
+                            <f:facet name="output"><h:outputText value="#{member.name}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputLabel value="#{students.students_Login}"/>
+                                <h:outputText id="name" value="#{member.name}" />
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
 
-                    <p:column headerText="Password">
+                    <p:column headerText="E-mail">
                         <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputLabel value="#{students.students_password}"/>
-                            </f:facet>
+                            <f:facet name="output"><h:outputText value="#{member.email}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputLabel value="#{students.students_password}"/>
+                                <h:outputText id="email" value="#{member.email}" />
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
 
-                    <p:column headerText="Is deleted">
+                    <p:column headerText="Дата реєстрації">
                         <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputLabel value="#{students.students_isDeleted}"/>
-                            </f:facet>
+                            <f:facet name="output"><h:outputText value="#{member.dateRegistration}" /></f:facet>
                             <f:facet name="input">
-                                <p:selectBooleanButton value="#{students.students_isDeleted}"
-                                                       onLabel="Deleted" offLabel="Not deleted"/>
+                                <h:outputText id="registration" value="#{member.dateRegistration}" />
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
-
-                    <p:column style="width:32px">
-                        <p:rowEditor/>
-                    </p:column>
-
                 </p:dataTable>
             </h:form>
 
