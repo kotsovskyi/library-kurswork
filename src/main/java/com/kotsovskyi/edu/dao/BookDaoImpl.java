@@ -4,7 +4,10 @@ import com.kotsovskyi.edu.entity.Book;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -38,22 +41,22 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-
-    public Book findById(long book_id) {
+    public Book findById(Long book_id) {
         Book book = null;
+        long id = book_id.longValue();
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        Query querry = em.createNativeQuery("Select * from Book where book_id = " + book_id, Book.class);
+        Query querry = em.createNativeQuery("Select * from Book where book_id = " + id, Book.class);
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         try{
             book = (Book) querry.getSingleResult();
         }
         catch(NoResultException e){
-            System.out.println("За даним id = " + book_id + " не знайдено книжки !!!");
+            System.out.println("За даним id = " + id + " не знайдено книжки !!!");
         }
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("->>> " + book.getTitle());
+        System.out.println("Знайдено знайдено ООООООООООООО ОООООООО ->>> " + book.getTitle());
         return book;
     }
 

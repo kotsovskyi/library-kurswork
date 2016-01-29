@@ -1,16 +1,14 @@
 package com.kotsovskyi.edu.bean;
 
 
-import java.io.Serializable;
+import org.springframework.context.annotation.Scope;
 
 import javax.inject.Named;
-
-import org.springframework.context.annotation.Scope;
+import java.io.Serializable;
 
 @Named("msgs")
 @Scope("session")
 public class MessageBean implements Serializable{
-	private static final long serialVersionUID = 1L;
 
 	private final String itemRequired = "Item field could not be empty";
 	private final String orderWeightRequired = "Order weight field could not be empty";

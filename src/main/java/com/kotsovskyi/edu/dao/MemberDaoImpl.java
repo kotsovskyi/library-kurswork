@@ -24,17 +24,18 @@ public class MemberDaoImpl implements MemberDao{
     @Override
     @Transactional
     public List<Member> getAll() {
-        String txt = "SELECT member.member_passport, member.email, member.name, member.date_registration" +
-                " FROM Member join role on role.role_id = member.role_id";
+//        String txt = "SELECT member.member_passport, member.email, member.name, member.date_registration" +
+//                " FROM Member join role on role.role_id = member.role_id";
+        String txt ="Select * from Member";
 
         Query querry = em.createNativeQuery(txt, Member.class);
         return querry.getResultList();
     }
 
     @Override
-
     public Member findByEmail(String email) {
-        Query querry = em.createNativeQuery("Select * from Member  where email = " + email, Member.class);
+        Query querry = em.createNativeQuery("Select * from Member where email = ?", Member.class);
+        querry.setParameter(1, email);
 
         return (Member) querry.getSingleResult();
     }
@@ -46,8 +47,9 @@ public class MemberDaoImpl implements MemberDao{
     }
 
     @Override
-    public Member findByName(String name) {
-        Query querry = em.createNativeQuery("SELECT * FROM Member WHERE name = " + name, Member.class);
+    public Member findByPassport(String passport) {
+        Query querry = em.createNativeQuery("SELECT * FROM Member WHERE member_passport = ?", Member.class);
+        querry.setParameter(1, passport);
 
         return (Member) querry.getSingleResult();
     }

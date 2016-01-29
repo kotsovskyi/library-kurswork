@@ -9,7 +9,7 @@ public interface BookDao {
 
     List getAll();
 
-    Book findById(long book_id);
+    Book findById(Long book_id);
 
     void update(Book Book);
 

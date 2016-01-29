@@ -13,18 +13,21 @@
         <ui:define name="content">
             <br/>
 
-            <h:form id="form">
-                <p:growl id="msgs" showDetail="true"/>
+            <h:form id="form-members">
+                <p:growl id="ms" showDetail="true"/>
 
                 <p:dataTable id="members" value="#{memberController.getMembers()}"
                              var="member" editable="true" style="margin-bottom:20px">
                     <f:facet name="header">Усі читачі</f:facet>
 
+                    <p:ajax event="rowEdit" listener="#{memberController.onBookEdit}" process="members" update=":form-members:ms" />
+                    <p:ajax event="rowEditCancel" listener="#{memberController.onBookCancel}" update=":form-members:ms" />
+
                     <p:column headerText="Паспорт">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{member.passport}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputText id="passport" value="#{member.passport}" />
+                                <h:outputText value="#{member.passport}" />
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
@@ -33,7 +36,7 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{member.name}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputText id="name" value="#{member.name}" />
+                                <p:inputText id="name" value="#{member.name}" required="true" style="width:100%"/>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
@@ -42,7 +45,7 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{member.email}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputText id="email" value="#{member.email}" />
+                                <p:inputText id="email" value="#{member.email}" required="true" style="width:100%"/>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
@@ -51,9 +54,13 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{member.dateRegistration}" /></f:facet>
                             <f:facet name="input">
-                                <h:outputText id="registration" value="#{member.dateRegistration}" />
+                                <p:inputText id="registration" value="#{member.dateRegistration}" required="true" style="width:100%"/>
                             </f:facet>
                         </p:cellEditor>
+                    </p:column>
+
+                    <p:column style="width:32px">
+                        <p:rowEditor />
                     </p:column>
                 </p:dataTable>
             </h:form>

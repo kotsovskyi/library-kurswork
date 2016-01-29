@@ -27,6 +27,7 @@ public class Member {
     private Role role;
 
     public Member() {
+        super();
     }
 
     public Member(MemberBean memberBean) {
@@ -35,7 +36,6 @@ public class Member {
         this.name = memberBean.getName();
         this.password = memberBean.getPassword();
         this.dateRegistration = memberBean.getDateRegistration();
-        this.role = memberBean.getRole();
     }
 
     public String getPassport() {

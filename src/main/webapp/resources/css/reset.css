@@ -46,3 +46,41 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+#namek{
+	width: 500px;
+    height: 40px;
+    margin-left: 50px;
+}
+
+#error-login{
+	margin-top: 3px;
+	width: 500px;
+    margin-left: 50px;
+    margin-bottom: 22px;
+}
+
+#error-password{
+	margin-top: 3px;
+	width: 500px;
+    margin-left: 50px;
+    margin-bottom: 22px;
+}
+
+#passk{
+	width: 500px;
+    height: 40px;
+    margin-left: 50px;
+}
+
+#sign-in-button {
+	width: 500px;
+    height: 40px;
+    margin-bottom: 25px;
+    margin-left: 50px;
+}
+
+#student-login{
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}

@@ -12,4 +12,8 @@ public class ViewController {
     public String redirectToMembersView(){
         return "members";
     }
+
+    public String redirectToSearchBook() {
+        return "searchBook";
+    }
 }

@@ -8,63 +8,56 @@
 
         #{studentEnterBean.studentNull()}
 
-        <h1>Student login</h1>
-        <br/>
-        <br/>
-        <br/>
+        <h1 id="student-login">Вхід до системи</h1>
 
         <h:form>
-
-            <h:panelGrid id="grid" columns="3" columnClasses="wd, wd, wd">
-                <p:outputLabel for="namek" value="Login"/>
-                <p:inputText id="namek"
+            <h:panelGrid id="grid" columns="1" columnClasses="wd">
+                <p:inputText id="namek" placeholder="E-mail" style="width: 500px;height: 40px;margin-left: 50px;"
                              required="true" value="#{studentEnterBean.login}"
-                             requiredMessage="#{msgsReg.nameRequired}"
-                             validatorMessage="#{msgsReg.nameLength}">
-                    <f:validateLength minimum="5" maximum="25"/>
+                             requiredMessage="#{msgsReg.emailRequired}"
+                             validatorMessage="#{msgsReg.emailLength}">
+                    <f:validateLength minimum="5" maximum="50"/>
                 </p:inputText>
+                <p:message style="margin-top: 3px;width: 500px;margin-left: 50px;margin-bottom: 22px;" id="error-login" for="namek" display="text"/>
 
-                <p:message for="namek" display="text"/>
 
-                <p:outputLabel for="passk" value="Password"/>
-                <p:password id="passk" value="#{studentEnterBean.pass}"
+                <p:password id="passk" value="#{studentEnterBean.pass}" placeholder="Пароль"
+                            style="width: 500px;height: 40px;margin-left: 50px;"
                             required="true" requiredMessage="#{msgsReg.passwordRequired}"
                             validatorMessage="#{msgsReg.passwordLength}">
-                    <f:validateLength minimum="4" maximum="128"/>
+                    <f:validateLength minimum="5" maximum="30"/>
                 </p:password>
-                <p:message for="passk" display="text"/>
+                <p:message id="error-password" style="margin-top: 3px;width: 500px;margin-left: 50px;margin-bottom: 22px;"
+                           for="passk" display="text"/>
 
             </h:panelGrid>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <p:commandButton value="Submit"
+            <p:commandButton value="Увійти" id="sign-in-button" style="width: 500px;height: 40px;margin-bottom: 25px;margin-left: 50px;"
                              action="#{studentEnterBean.findStudent()}" update="grid"/>
         </h:form>
 
-        <form class="cd-form">
-            <p class="fieldset">
-                <label class="image-replace cd-email" for="signin-email">E-mail</label>
-                <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail"/>
-                <span class="cd-error-message">Здесь сообщение об ошибке!</span>
-            </p>
+        <!--<form class="cd-form">-->
+            <!--<p class="fieldset">-->
+                <!--<label class="image-replace cd-email" for="signin-email">E-mail</label>-->
+                <!--<input class="full-width has-padding has-border" id="signin-email" type="email" />-->
+                <!--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
+            <!--</p>-->
 
-            <p class="fieldset">
-                <label class="image-replace cd-password" for="signin-password">Пароль</label>
-                <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Пароль"/>
-                <a href="#0" class="hide-password">Сховати</a>
-                <span class="cd-error-message">Здесь сообщение об ошибке!</span>
-            </p>
+            <!--<p class="fieldset">-->
+                <!--<label class="image-replace cd-password" for="signin-password">Пароль</label>-->
+                <!--<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Пароль"/>-->
+                <!--<a href="#0" class="hide-password">Сховати</a>-->
+                <!--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
+            <!--</p>-->
 
-            <p class="fieldset">
-                <input type="checkbox" id="remember-me" />
-                <label for="remember-me">Запам'ятати мене</label>
-            </p>
+            <!--<p class="fieldset">-->
+                <!--<input type="checkbox" id="remember-me" />-->
+                <!--<label for="remember-me">Запам'ятати мене</label>-->
+            <!--</p>-->
 
-            <p class="fieldset">
-                <input class="full-width" type="submit" value="Войти"/>
-            </p>
-        </form>
+            <!--<p class="fieldset">-->
+                <!--<input class="full-width" type="submit" value="Войти"/>-->
+            <!--</p>-->
+        <!--</form>-->
 
 </html>

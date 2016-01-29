@@ -13,5 +13,5 @@ public interface MemberDao {
 
     void update(Member member);
 
-    Member findByName(String name);
+    Member findByPassport(String passport);
 }

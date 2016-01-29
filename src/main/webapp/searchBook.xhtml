@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <ui:composition template="WEB-INF/templates/adminUniversityTemp.xhtml">
+
+        <ui:define name="content">
+            <br/>
+            <h2 style="text-align: center;">Пошук книги</h2>
+
+            <h:form id="formId">
+                <h:panelGrid id="panel-grid" columns="1" columnClasses="wd">
+                    <p:inputText id="isbn" placeholder="Введіть ISBN книжки (13 цифр)"
+                                 style="margin-top: 10px; width: 500px;height: 35px; margin-left: 180px;"
+                                 required="true" value="#{bookController.bookId}"
+                                 requiredMessage="#{msgsReg.bookIdRequired}"
+                                 converterMessage="#{msgsReg.bookIdType}"
+                                 validatorMessage="#{msgsReg.bookIdLength}">
+                        <f:validateLength minimum="13" maximum="13"/>
+                    </p:inputText>
+                    <p:message style="margin-top: 3px; width: 500px; margin-left:180px; margin-bottom: 12px;"
+                               for="isbn" display="text"/>
+                </h:panelGrid>
+                <p:commandButton value="Пошук"
+                                 style="width: 500px; height: 35px;margin-bottom: 25px;margin-left: 180px;"
+                                 action="#{bookController.findById(bookController.bookId)}" update="panel-grid" onclick="setHiddenValue();"/>
+
+            </h:form>
+
+            <script type="text/javascript">
+                function setHiddenValue(){
+                    var roman = document.getElementById('formId:isbn').value;
+
+                    if(isFinite(roman)) {
+                        if(('' + roman).length == 13) {
+                            PF('bookFined').hide();
+                            alert(roman);
+
+                        }
+                    }
+                }
+            </script>
+
+
+            <ui:insert widgetVar="bookFined" resizable="false">
+                <ui:include src="bookFined.xhtml"/>
+            </ui:insert>
+
+
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+</html>

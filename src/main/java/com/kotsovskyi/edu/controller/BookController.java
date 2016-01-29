@@ -3,7 +3,6 @@ package com.kotsovskyi.edu.controller;
 import com.kotsovskyi.edu.bean.BookBean;
 import com.kotsovskyi.edu.dao.BookDao;
 import com.kotsovskyi.edu.entity.Book;
-import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +23,10 @@ public class BookController {
 
     @Inject
     private BookBean bookBean;
+
+    private Book book;
+
+    private Long bookId;
 
     private  List<Book> books;
 
@@ -47,6 +50,14 @@ public class BookController {
         return "success";
     }
 
+    public void findById(Long book_id){
+        System.out.println("++++++++++++++++++++++++++++++++++++++++ " + book_id);
+        book = bookDao.findById(book_id);
+        System.out.println("?????????????????????? " + book.getBookId());
+        //return "bookFined";
+    }
+
+
     @Transactional
     public void onBookEdit(RowEditEvent event) {
         Book book = (Book) event.getObject();
@@ -63,13 +74,32 @@ public class BookController {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onCellEdit(CellEditEvent event) {
-        Object oldValue = event.getOldValue();
-        Object newValue = event.getNewValue();
+    public BookBean getBookBean(){
+        return this.bookBean;
+    }
 
-        if(newValue != null && !newValue.equals(oldValue)) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
-            FacesContext.getCurrentInstance().addMessage(null, msg);
+    public void setBookBean(BookBean bookBean) {
+        this.bookBean = bookBean;
+    }
+
+    public Book getBook() {
+        try {
+            return this.book;
+        } finally {
+//            book = null;
+//            bookId = null;
         }
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 }
