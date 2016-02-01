@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b50240ab-0bd7-427f-b946-c348bb8183b8" name="Default" comment="add member, book to DB and clear catch after query">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/memberPage.xhtml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/headAdmin.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/studentHeader.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/studentTemplate.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/addGroupPage.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/addNewUser.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/allUsers.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/studentPage.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/success.xhtml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/bean/StudentEnterBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/bean/EnterBean.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/adminUniversityHeader.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/adminHeader.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/adminUniversityPage.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/adminPage.xhtml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/studentEnter.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/memberEnter.xhtml" />
+    <list default="true" id="b50240ab-0bd7-427f-b946-c348bb8183b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/bean/BookBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/bean/BookBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/controller/BookController.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/controller/BookController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/controller/MemberController.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/controller/MemberController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/BookDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/BookDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/BookDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/BookDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/MemberDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/MemberDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/MemberDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/dao/MemberDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Book.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Member.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/kotsovskyi/edu/entity/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/adminUniversityTemp.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/adminUniversityTemp.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/addNewMember.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/addNewMember.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/error403.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/error403.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/reset.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/custom.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/searchBook.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/searchBook.xhtml" />
     </list>
     <ignored path="FishTC.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1387,7 +1356,7 @@
       <workItem from="1454161784345" duration="20707000" />
       <workItem from="1454280857523" duration="21725000" />
       <workItem from="1454352368506" duration="97000" />
-      <workItem from="1454352741242" duration="3267000" />
+      <workItem from="1454352741242" duration="3388000" />
     </task>
     <task id="LOCAL-00001" summary="remove">
       <created>1453919759801</created>
@@ -1413,11 +1382,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454042502958</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add member, book to DB and clear catch after query">
+      <created>1454364902943</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1454364902944</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281997000" />
+    <option name="totallyTimeSpent" value="282118000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
