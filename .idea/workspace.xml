@@ -1356,7 +1356,7 @@
       <workItem from="1454161784345" duration="20707000" />
       <workItem from="1454280857523" duration="21725000" />
       <workItem from="1454352368506" duration="97000" />
-      <workItem from="1454352741242" duration="3388000" />
+      <workItem from="1454352741242" duration="3400000" />
     </task>
     <task id="LOCAL-00001" summary="remove">
       <created>1453919759801</created>
@@ -1388,11 +1388,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454364902944</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add member, book to DB and clear catch after query">
+      <created>1454365021495</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1454365021495</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282118000" />
+    <option name="totallyTimeSpent" value="282130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
