@@ -5,19 +5,30 @@ import com.kotsovskyi.edu.bean.MemberBean;
 import javax.persistence.*;
 
 @Entity
-@Table
+@SqlResultSetMapping(
+        name = "MemberRoleMapping",
+        entities = {
+                @EntityResult(
+                        entityClass = Member.class,
+                        fields = {
+                                @FieldResult(name = "passport", column = "member_passport"),
+                                @FieldResult(name = "email", column = "email"),
+                                @FieldResult(name = "name", column = "name"),
+                                @FieldResult(name = "password", column = "password"),
+                                @FieldResult(name = "dateRegistration", column = "date_registration"),
+                                @FieldResult(name = "role", column = "role_id")}),
+                @EntityResult(
+                        entityClass = Role.class,
+                        fields = {
+                                @FieldResult(name = "Role.roleId", column = "role_id"),
+                                @FieldResult(name = "Role.roleName", column = "role_name")})}
+)
 public class Member {
     @Id
     @Column(name = "member_passport")
     private String passport;
-
-    @Column
     private String email;
-
-    @Column
     private String name;
-
-    @Column
     private String password;
 
     @Column(name = "date_registration")
@@ -25,18 +36,6 @@ public class Member {
 
     @ManyToOne
     private Role role;
-
-    public Member() {
-        super();
-    }
-
-    public Member(MemberBean memberBean) {
-        this.passport = memberBean.getPassport();
-        this.email = memberBean.getEmail();
-        this.name = memberBean.getName();
-        this.password = memberBean.getPassword();
-        this.dateRegistration = memberBean.getDateRegistration();
-    }
 
     public String getPassport() {
         return passport;

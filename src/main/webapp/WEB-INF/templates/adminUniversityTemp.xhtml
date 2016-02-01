@@ -18,8 +18,8 @@
     <h:outputScript library="js" name="jquery-1.11.2.min.js"/>
 </h:head>
 <h:body>
-        <p:panel rendered='#{!studentEnterBean.login.equals("admin")}'>
-            #{studentEnterBean.backToLoginPage()}
+        <p:panel rendered='#{!signInController.member.getRole().getRoleName().equals("librarian")}'>
+            #{signInController.backToLogInPage()}
         </p:panel>
 
     <div class="templatemo-flex-row">
@@ -48,11 +48,11 @@
                         <i class="fa fa-search fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
                         <i class="fa fa-book fa-fw"></i>Пошук книжки</a>
                     </li>
-                    <li><a>
+                    <li><a href="../../addNewMember.xhtml">
                         <i class="fa fa-plus fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
                         <i class="fa fa-user fa-fw"></i>Реєстрація читача</a>
                     </li>
-                    <li><a>
+                    <li><a href="../../addNewBook.xhtml">
                         <i class="fa fa-plus fa-fw" style="margin: 0px; font-size: 9px; padding: 0px;"></i>
                         <i class="fa fa-book fa-fw"></i>Додати книжку</a>
                     </li>
@@ -64,7 +64,7 @@
         <div class="templatemo-content col-1 light-gray-bg">
             <!-- HEADER -->
             <ui:insert name="header">
-                <ui:include src="adminUniversityHeader.xhtml"/>
+                <ui:include src="adminHeader.xhtml"/>
             </ui:insert>
 
             <!-- Main content -->
@@ -73,7 +73,9 @@
                     <div class="panel panel-default table-responsive">
 
                         <ui:insert name="content">
-                            <p style="margin-top: 50px; margin-bottom: 50px;"> Hello !!!</p>
+                            <p style="text-align: center; margin-top: 100px; margin-bottom: 100px; color: #0B615E;">
+                                Hello !!!
+                            </p>
                         </ui:insert>
 
                     </div>

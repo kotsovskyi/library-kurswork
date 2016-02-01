@@ -5,13 +5,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<ui:composition template="WEB-INF/templates/BasicTemplate.xhtml">
+<ui:include src="WEB-INF/templates/BasicTemplate.xhtml">
 	<ui:define name="content">
 		<h3>User not found or password is incorrect</h3>
-		<hr />
-		<h:form>
-			<h:link value="Try to log in again" outcome="userEnter" />
-		</h:form>
 	</ui:define>
-</ui:composition>
+</ui:include>
 </html>

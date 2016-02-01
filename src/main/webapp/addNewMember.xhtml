@@ -8,49 +8,47 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="WEB-INF/templates/adminUniversityTemp.xhtml">
-    <ui:define name="content">
 
-        <h2 style="text-align: center;">Реєстрація нового читача</h2>
+
+    <ui:define name="content">
         <br/>
         <br/>
+        <h2 style="text-align: center; color: #0B615E;">Реєстрація нового читача</h2>
         <br/>
-        <div class="content">
             <h:form>
 
-                <h:panelGrid id="grid" columns="3" columnClasses="wd, wd, wd">
-
-                    <p:outputLabel for="studName" value="Name:"/>
-                    <p:inputText id="studName"
-                                 value="#{adminUniversityBean.newAddedStudent.students_Name}"
+                <h:panelGrid id="gridd" columns="1" columnClasses="wd">
+                    <p:inputText id="memberPass" style="margin-top: 10px; width: 500px;height: 35px; margin-left: 180px;"
+                                 placeholder="Введіть серію та номер паспорта (КС816297) або студентського"
+                                 value="#{memberController.passport}"
                                  required="true">
-                        <f:validateLength minimum="5" maximum="127"/>
+                        <f:validateLength minimum="8" maximum="10"/>
                     </p:inputText>
-                    <p:message for="studName" style="color:red"/>
+                    <p:message for="memberPass" style="color:red"/>
+                    <br/>
 
-                    <p:outputLabel for="studLogin" value="Login:"/>
-                    <p:inputText id="studLogin"
-                                 value="#{adminUniversityBean.newAddedStudent.students_Login}"
+                    <p:inputText id="memberMail" style="margin-top: 5px; width: 500px;height: 35px; margin-left: 180px;"
+                                 placeholder="Введіть e-mail"
+                                 value="#{memberController.email}"
                                  required="true">
-                        <f:validateLength minimum="5" maximum="127"/>
+                        <f:validateLength minimum="10" maximum="64"/>
                     </p:inputText>
-                    <p:message for="studLogin" style="color:red"/>
+                    <p:message for="memberMail" style="color:red"/>
+                    <br/>
 
-                    <p:outputLabel for="studPass" value="Password"/>
-                    <p:password id="studPass"
-                                value="#{adminUniversityBean.newAddedStudent.students_password}"
-                                required="true">
-                        <f:validateLength minimum="4" maximum="127"/>
-                    </p:password>
-                    <p:message for="studPass" style="color:red"/>
-
+                    <p:inputText id="memberName" style="margin-top: 5px; width: 500px;height: 35px; margin-left: 180px;"
+                                 placeholder="Введіть ім'я"
+                                 value="#{memberController.name}"
+                                 required="true">
+                        <f:validateLength minimum="10" maximum="64"/>
+                    </p:inputText>
+                    <p:message for="memberName" style="color:red"/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <p:commandButton update="grid" value="Submit"
-                                     action="#{adminUniversityBean.saveNewStudent}"/>
                 </h:panelGrid>
+                <p:commandButton update="gridd" value="Submit" style="margin-top: 10px; background-color: #39ADB4; width: 500px;height: 35px;
+                            margin-left: 180px; margin-bottom: 50px;"
+                                 action="#{memberController.addMember()}"/>
             </h:form>
-        </div>
     </ui:define>
 </ui:composition>
 </html>

@@ -19,17 +19,20 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     @Transactional
-    public void save(Book book) {
+    public boolean save(Book book) {
         Query query = em.createNativeQuery("Insert into BOOK (book_id, title, author, published_date, price, " +
-                "rack_number) " + "VALUES (545454545, ?, ?, ?, ?, ?)");
+                "rack_number) " + "VALUES (?, ?, ?, ?, ?, ?)");
 
-        query.setParameter(1, book.getTitle());
-        query.setParameter(2, book.getAuthor());
-        query.setParameter(3, book.getPublishedDate());
-        query.setParameter(4, book.getPrice());
-        query.setParameter(5, book.getRackNumber());
+        query.setParameter(1, book.getBookId());
+        query.setParameter(2, book.getTitle());
+        query.setParameter(3, book.getAuthor());
+        query.setParameter(4, book.getPublishedDate());
+        query.setParameter(5, book.getPrice());
+        query.setParameter(6, book.getRackNumber());
 
-        query.executeUpdate();
+        int updateCount = query.executeUpdate();
+
+        return updateCount == 1;
     }
 
     @Override

@@ -6,35 +6,36 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-        #{studentEnterBean.studentNull()}
-
         <h1 id="student-login">Вхід до системи</h1>
 
-        <h:form>
-            <h:panelGrid id="grid" columns="1" columnClasses="wd">
+
+        <h:form id="lala">
+            <h:panelGrid id="grid" columns="1" columnClasses="tw">
                 <p:inputText id="namek" placeholder="E-mail" style="width: 500px;height: 40px;margin-left: 50px;"
-                             required="true" value="#{studentEnterBean.login}"
+                             required="true" value="#{signInController.login}"
                              requiredMessage="#{msgsReg.emailRequired}"
                              validatorMessage="#{msgsReg.emailLength}">
                     <f:validateLength minimum="5" maximum="50"/>
                 </p:inputText>
-                <p:message style="margin-top: 3px;width: 500px;margin-left: 50px;margin-bottom: 22px;" id="error-login" for="namek" display="text"/>
+                <p:message style="margin-left: 50px;" for="namek" display="text"/>
+                <br/>
 
-
-                <p:password id="passk" value="#{studentEnterBean.pass}" placeholder="Пароль"
+                <p:password id="passk" value="#{signInController.pass}" placeholder="Пароль"
                             style="width: 500px;height: 40px;margin-left: 50px;"
                             required="true" requiredMessage="#{msgsReg.passwordRequired}"
                             validatorMessage="#{msgsReg.passwordLength}">
                     <f:validateLength minimum="5" maximum="30"/>
                 </p:password>
-                <p:message id="error-password" style="margin-top: 3px;width: 500px;margin-left: 50px;margin-bottom: 22px;"
+                <p:message id="error-password" style="margin-top: 3px;width: 500px;margin-left: 50px;margin-bottom: 30px;"
                            for="passk" display="text"/>
 
             </h:panelGrid>
             <br/>
-            <p:commandButton value="Увійти" id="sign-in-button" style="width: 500px;height: 40px;margin-bottom: 25px;margin-left: 50px;"
-                             action="#{studentEnterBean.findStudent()}" update="grid"/>
+            <p:commandButton value="Увійти" id="mybutton" style="width: 500px; background-color: #39ADB4; height: 40px;margin-bottom: 25px; margin-top: 10px; margin-left: 50px;"
+                             action="#{signInController.findMember()}" update="grid"/>
         </h:form>
+        <br/>
+        <br/>
 
         <!--<form class="cd-form">-->
             <!--<p class="fieldset">-->

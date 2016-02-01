@@ -8,11 +8,11 @@ import java.util.Date;
 @Named
 public class BookBean {
 
-    private long bookId;
+    private Long bookId;
     private String title;
     private String author;
     private String publishedDate;
-    private double price;
+    private Double price;
     private String rackNumber;
 
     public String getTitle() {
@@ -46,19 +46,19 @@ public class BookBean {
         this.publishedDate = publishingYear;
     }
 
-    public long getBookId() {
+    public Long getBookId() {
         return bookId;
     }
 
-    public void setBookId(long bookId) {
+    public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -25,7 +25,7 @@ public class Book {
     private String publishedDate;
 
     @Column
-    private double price;
+    private Double price;
 
     @Column(name = "rack_number")
     private String rackNumber;
@@ -81,11 +81,11 @@ public class Book {
         this.author = author;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

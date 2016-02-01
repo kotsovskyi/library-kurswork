@@ -22,20 +22,27 @@
                                 </p:commandLink>
                         </li>
                         <li>
-                            <p:commandLink action="#{adminUniversityBean.addGroupPage}">
+                            <p:commandLink>
                                 <p:outputLabel>Дещо 1</p:outputLabel>
                             </p:commandLink>
                         </li>
-                        <li><a href="login.html">Дещо 2</a></li>
+                        <li>
+                            <p:commandLink>
+                                <p:outputLabel>Дещо 2</p:outputLabel>
+                            </p:commandLink>
+                        </li>
                     </h:form>
                 </ul>
             </nav>
             <ul class="navbar-nav navbar-right">
-                <li style="margin-right: 20px;"><a href="../../adminUniversityPage.xhtml"><span
+                <li style="margin-right: 20px;"><a href="../../adminPage.xhtml"><span
                         class="glyphicon glyphicon-user"/> Welcome,
-                    #{studentEnterBean.login}</a></li>
-                <li style="margin-right: 20px;"><a href="../../index.xhtml"><span
-                        class="glyphicon glyphicon-off"/>Exit</a></li>
+                    #{signInController.member.getName()}</a></li>
+                <li style="margin-right: 20px;">
+                    <p:commandLink action="#{signInController.backToLogInPage()}">
+                        <span class="glyphicon glyphicon-off"/>Exit
+                    </p:commandLink>
+                </li>
             </ul>
         </div>
     </div>

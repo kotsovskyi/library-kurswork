@@ -5,7 +5,6 @@ import com.kotsovskyi.edu.dao.MemberDao;
 import com.kotsovskyi.edu.entity.Member;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.context.annotation.Scope;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -27,6 +26,9 @@ public class MemberController {
     private Member member;
 
     private String passport;
+    private String email;
+    private String name;
+    private String dateRegistration;
 
     private  List<Member> members;
 
@@ -43,37 +45,33 @@ public class MemberController {
         members = memberDao.getAll();
     }
 
-    @Transactional
     public String addMember() {
-        Member member = new Member(memberBean);
+        Member member = new Member();
+
+        member.setPassport(passport);
+        member.setEmail(email);
+        member.setName(name);
+        member.setDateRegistration("01-02-2016"); // dateRegistration will be automatically inserted
+        member.setPassword("ppppp"); // password will be automatically generated
+
         memberDao.save(member);
-        return "success";
+
+        return "successAddMember";
     }
 
-    public void findByPassport(String passport){
-        member = memberDao.findByPassport(passport);
+    public void findByPassport(){
+        member = memberDao.findByPassport(this.passport);
     }
 
 
-    @Transactional
     public void onBookEdit(RowEditEvent event) {
         Member member = (Member) event.getObject();
-        System.out.println("1-> " + member.getName());
-        System.out.println("2-> " + member.getDateRegistration());
-        System.out.println("3-> " + member.getEmail());
-        System.out.println("4-> " + member.getPassport());
-        System.out.println("5-> " + member.getRole());
-
-        if (memberDao.findByEmail(member.getEmail()) != null) {
-            System.out.println("1-> " + member.getName());
-            System.out.println("2-> " + member.getDateRegistration());
-            System.out.println("3-> " + member.getEmail());
-            System.out.println("4-> " + member.getPassport());
-            System.out.println("5-> " + member.getRole());
-            memberDao.update(member);
+        if (memberDao.findByPassport(member.getPassport()) != null) {
+            if(memberDao.update(member)){
+                FacesMessage msg = new FacesMessage("Читач відредагований",((Member) event.getObject()).getName());
+                FacesContext.getCurrentInstance().addMessage(null, msg);
+            }
         }
-        FacesMessage msg = new FacesMessage("Читач відредагований",((Member) event.getObject()).getName());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
     public void onBookCancel(RowEditEvent event) {
@@ -95,5 +93,29 @@ public class MemberController {
 
     public void setPassport(String passport) {
         this.passport = passport;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDateRegistration() {
+        return dateRegistration;
+    }
+
+    public void setDateRegistration(String dateRegistration) {
+        this.dateRegistration = dateRegistration;
     }
 }

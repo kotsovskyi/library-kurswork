@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
-	  xmlns:f="http://java.sun.com/jsf/core">
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>KPI libary</title>
 
@@ -40,10 +41,205 @@
 
 			<div id="cd-login">
 
-				<ui:include src="studentEnter.xhtml"/> <!-- форма входа -->
+				<ui:include src="memberEnter.xhtml"/> <!-- форма входа -->
 
 				<p class="cd-form-bottom-message"><a href="#0">Забули свій пароль?</a></p>
 			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- ФОРМА РЕЄСТРАЦІЇ -->
+				<form id="registrationForm" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-xs-3 control-label">Повне ім'я</label>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="firstName" placeholder="Ім'я" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="lastName" placeholder="Прізвище" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-3 control-label">E-mail адрес</label>
+						<div class="col-xs-8">
+
+							<div class="input-group">
+								<input type="email" class="form-control" name="email" placeholder="Введіть Email" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-3 control-label">Адреса</label>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="street_name" placeholder="Місто" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="lastName" placeholder="Вулиця" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-3 control-label"></label>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="lastName" placeholder="Дім" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input type="text" class="form-control" name="lastName" placeholder="Квартира" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-3 control-label">Моб. тел.</label>
+						<div class="col-xs-8">
+							<div class="input-group">
+								<input type="text" class="form-control" name="city" placeholder="Введіть номер у форматі: 757 84 85" required=""/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="form-group horizontal demo">
+						<label class="col-xs-9 control-label">Ви являєтесь поточним студентом КПІ ?</label>
+						<br/><br/><div class="col-xs-5"></div>
+
+						<input class="hide" id="hd-1" type="radio" name="student" value="yes" />
+						<label for="hd-1">
+							Так
+						</label>
+
+						<input  class="hide" id="hd-2" type="radio" name="student" value="no" />
+						<label for="hd-2">
+							Ні
+						</label>
+
+						<div id="hd-1_block">
+							<div class="form-group">
+								<label class="col-xs-3 control-label">Студентський</label>
+								<div class="col-xs-4">
+									<div class="input-group">
+										<input type="text" class="form-control" name="firstName" placeholder="Серія" required=""/>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+									</div>
+								</div>
+								<div class="col-xs-4">
+									<div class="input-group">
+										<input type="text" class="form-control" name="lastName" placeholder="Номер" required=""/>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-xs-3 control-label">Факультет</label>
+								<div class="col-xs-8">
+									<div class="input-group" name="faculty">
+										<select class="form-control">
+											<option class="faculty select_default" value="nothin"></option>
+											<option class="faculty" value="ФПМ">Факультет прикладної математики - ФПМ</option>
+											<option class="faculty" value="ЗФ">Зварювальний факультет - ЗФ</option>
+											<option class="faculty" value="ІФФ">Інженерно-фiзичний факультет - ІФФ</option>
+											<option class="faculty" value="ІХФ">Інженерно-хiмiчний факультет - ІХФ</option>
+											<option class="faculty" value="ПБФ">Приладобудiвний факультет - ПБФ</option>
+											<option class="faculty" value="РТФ">Радiотехнiчний факультет - РТФ</option>
+											<option class="faculty" value="ТЕФ">Теплоенергетичний факультет - ТЕФ</option>
+											<option class="faculty" value="ФАКС">Факультет авiацiйних i космiчних систем - ФАКС</option>
+											<option class="faculty" value="ФБМІ">Факультет біомедичної інженерії - ФБМІ</option>
+											<option class="faculty" value="ФБТ">Факультет бiотехнологiї i бiотехнiки - ФБТ</option>
+											<option class="faculty" value="ФЕА">Факультет електроенерготехнiки та автоматики - ФЕА</option>
+											<option class="faculty" value="ФЕЛ">Факультет електронiки - ФЕЛ</option>
+											<option class="faculty" value="ФІОТ">Факультет iнформатики та обчислювальної технiки - ФІОТ</option>
+											<option class="faculty" value="ФЛ">Факультет лiнгвiстики - ФЛ</option>
+											<option class="faculty" value="ФММ">Факультет менеджменту та маркетингу - ФММ</option>
+											<option class="faculty" value="ФСП">Факультет соціології і права - ФСП</option>
+											<option class="faculty" value="ФМФ">Фiзико-математичний факультет - ФМФ</option>
+											<option class="faculty" value="ХТФ">Хiмiко-технологiчний факультет - ХТФ</option>
+											<option class="faculty" value="СФМ">Спільний факультет машинобудування — СФМ</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-xs-3 control-label">Інститут</label>
+								<div class="col-xs-8">
+									<div class="input-group" name="institute">
+										<select class="form-control">
+											<option class="institute select_default" value="nothin"></option>
+											<option value="ІПСА">Інститут прикладного системного аналізу - ІПСА</option>
+											<option value="ВПІ">Видавничо-поліграфічний інститут - ВПІ</option>
+											<option value="IEE">Інститут енергозбереження та енергоменеджменту - IEE</option>
+											<option value="ІСЗЗІ">Інститут спеціального зв'язку та захисту інформації - ІСЗЗІ</option>
+											<option value="ІТС">Інститут телекомунікаційних систем - ІТС</option>
+											<option value="ММІ">Механіко-машинобудівний інститут - ММІ</option>
+											<option value="ФТІ">Фізико-технічний інститут - ФТІ</option>
+											<option value="ІМЯО">Інститут моніторингу якості освіти - ІМЯО</option>
+											<option value="ІПО">Інститут післядипломної освіти - ІПО</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div id="hd-2_block">
+							CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа;
+						</div>
+					</div>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms"/>
+						<label for="accept-terms" style="font: inherit; font-size: 0.875rem; cursor: default;">
+							Я згідний з <a href="#0">Умовами Реєстрації</a>
+						</label>
+					</p>
+
+					<br/>
+
+					<div>
+						<input type="submit" class="btn btn-info btn-lg submit-button" value="Створити акаунт"/>
+					</div>
+				</form>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- форма восстановления пароля -->
+				<p class="cd-form-message">Забули пароль? Будь ласка, введіть адрес своєї електронної пошти. Ви отримаєте силку щоб створити новий пароль.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail"/>
+						<span class="cd-error-message">Здесь сообщение об ошибке!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Востановити пароль"/>
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Повернутись до входу</a></p>
+			</div> <!-- cd-reset-password -->
 
 			<a href="#0" class="cd-close-form">Закрыть</a>
 		</div> <!-- cd-user-modal-container -->

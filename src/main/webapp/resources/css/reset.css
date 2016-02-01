@@ -73,6 +73,7 @@ table {
 }
 
 #sign-in-button {
+
 	width: 500px;
     height: 40px;
     margin-bottom: 25px;
@@ -83,4 +84,26 @@ table {
 	text-align: center;
 	margin-top: 25px;
 	margin-bottom: 25px;
+}
+
+.ui-messages-error{
+	margin-top: 3px;
+	margin-left: 50px;
+}
+.ui-message-error-detail{
+	margin-top: 3px;
+	margin-left: 50px;
+}
+
+.ui-message {
+	margin-left: 50px;
+}
+.ui-message-error{
+	margin-left: 50px;
+} 
+.ui-widget{
+	margin-left: 50px;
+} 
+.ui-corner-all{
+	margin-left: 50px;	
 }

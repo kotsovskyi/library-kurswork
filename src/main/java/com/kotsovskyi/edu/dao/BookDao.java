@@ -5,7 +5,7 @@ import com.kotsovskyi.edu.entity.Book;
 import java.util.List;
 
 public interface BookDao {
-    void save(Book book);
+    boolean save(Book book);
 
     List getAll();
 

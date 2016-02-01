@@ -5,13 +5,15 @@ import com.kotsovskyi.edu.entity.Member;
 import java.util.List;
 
 public interface MemberDao {
-    void save(Member member);
+    boolean save(Member member);
 
     List getAll();
 
     Member findByEmail(String email);
 
-    void update(Member member);
+    boolean update(Member member);
 
     Member findByPassport(String passport);
+
+    Member findByLoginPassword(String email, String password);
 }

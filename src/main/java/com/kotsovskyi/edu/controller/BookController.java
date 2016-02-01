@@ -27,6 +27,11 @@ public class BookController {
     private Book book;
 
     private Long bookId;
+    private String title;
+    private String author;
+    private String publishedDate;
+    private Double price;
+    private String rackNumber;
 
     private  List<Book> books;
 
@@ -45,9 +50,18 @@ public class BookController {
 
     @Transactional
     public String addBook() {
-        Book book = new Book(bookBean);
+        Book book = new Book();
+
+        book.setBookId(bookId);
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setPublishedDate(publishedDate);
+        book.setPrice(price);
+        book.setRackNumber(rackNumber);
+
         bookDao.save(book);
-        return "success";
+
+        return "successAddBook";
     }
 
     public void findById(Long book_id){
@@ -101,5 +115,45 @@ public class BookController {
 
     public void setBookId(Long bookId) {
         this.bookId = bookId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getRackNumber() {
+        return rackNumber;
+    }
+
+    public void setRackNumber(String rackNumber) {
+        this.rackNumber = rackNumber;
     }
 }

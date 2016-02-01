@@ -9,13 +9,15 @@ import java.util.List;
 @Table
 public class Role {
     @Id
-    private int roleId;
+    @Column(name = "role_id")
+    private Long roleId;
 
     @Column(name = "role_name")
     private String roleName;
 
-    @OneToMany(targetEntity = Member.class)
+    @OneToMany(mappedBy = "role")
     private List<Member> members;
+
 
     public Role() {
         members = new ArrayList<Member>();
@@ -29,21 +31,25 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public List<Member> getListOfMembers() {
+    public List<Member> getMembers() {
         return members;
     }
 
-    public void setListOfMembers(List<Member> listOfMembers) {
-        this.members = listOfMembers;
-    }
-
-    public void addMembers(Member member){
-        if (!getListOfMembers().contains(member)) {
-            getListOfMembers().add(member);
+    public void addMember(Member member){
+        if (!getMembers().contains(member)) {
+            getMembers().add(member);
             if (member.getRole() != null) {
-                member.getRole().getListOfMembers().remove(member);
+                member.getRole().getMembers().remove(member);
             }
             member.setRole(this);
         }
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 }
