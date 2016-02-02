@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.samples.service.service</groupId>
-	<artifactId>FishTC</artifactId>
+	<artifactId>Library</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -131,14 +131,7 @@
 			<version>10.10.1.1</version>
 		</dependency>
 
-		<!-- ORACLE database driver -->
-		<!--<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.4</version>
-			<scope>system</scope>
-			<systemPath>C:/Users/Bohdan/.m2/repository/jdbc-drivers/ojdbc6-11.2.0.4.jar</systemPath>
-		</dependency>-->
+
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>

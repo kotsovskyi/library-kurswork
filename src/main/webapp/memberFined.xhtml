@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:form id="form-memb">
+    <p:growl id="md" showDetail="true"/>
+
+    <p:dataTable id="member" value="#{memberController.getMember()}"
+                 var="memb" editable="true" style="margin-bottom:20px">
+        <f:facet name="header">Усі читачі</f:facet>
+
+        <p:ajax event="rowEdit" listener="#{memberController.onBookEdit}" process="member" update=":form-memb:md" />
+        <p:ajax event="rowEditCancel" listener="#{memberController.onBookCancel}" update=":form-memb:md" />
+
+        <p:column headerText="Паспорт">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{memb.passport}" /></f:facet>
+                <f:facet name="input">
+                    <h:outputText value="#{memb.passport}" />
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="Ім'я">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{memb.name}" /></f:facet>
+                <f:facet name="input">
+                    <p:inputText value="#{memb.name}" required="true" style="width:100%"/>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="E-mail">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{memb.email}" /></f:facet>
+                <f:facet name="input">
+                    <p:inputText  value="#{memb.email}" required="true" style="width:100%"/>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column headerText="Дата реєстрації">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{memb.dateRegistration}" /></f:facet>
+                <f:facet name="input">
+                    <p:inputText value="#{memb.dateRegistration}" required="true" style="width:100%"/>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+
+        <p:column style="width:32px">
+            <p:rowEditor />
+        </p:column>
+    </p:dataTable>
+</h:form>
+</html>

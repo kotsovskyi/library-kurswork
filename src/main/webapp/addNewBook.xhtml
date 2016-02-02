@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/templates/adminTemp.xhtml">
+
+
+    <ui:define name="content">
+        <br/>
+        <br/>
+        <h2 style="text-align: center; color: #0B615E;">Реєстрація нової книжки</h2>
+        <br/>
+        <h:form>
+
+            <h:panelGrid id="book-grid" columns="1" columnClasses="wd">
+                <p:inputText id="bookId" style="margin-top: 10px; width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введітіть ISBN (13 цифр)"
+                             value="#{bookController.bookId}"
+                             required="true">
+                    <f:validateLength minimum="13" maximum="13"/>
+                </p:inputText>
+                <p:message for="bookId" style="color:red"/>
+                <br/>
+
+                <p:inputText id="bookTitle" style="width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введіть назву книжки"
+                             value="#{bookController.title}"
+                             required="true">
+                    <f:validateLength minimum="5" maximum="64"/>
+                </p:inputText>
+                <p:message for="bookTitle" style="color:red"/>
+                <br/>
+
+                <p:inputText id="bookAuthor" style="width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введіть авторів"
+                             value="#{bookController.author}"
+                             required="true">
+                    <f:validateLength minimum="5" maximum="64"/>
+                </p:inputText>
+                <p:message for="bookAuthor" style="color:red"/>
+                <br/>
+
+                <p:inputText id="bookPublishedDate" style="width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введіть дату публікації"
+                             value="#{bookController.publishedDate}"
+                             required="true">
+                    <f:validateLength minimum="5" maximum="64"/>
+                </p:inputText>
+                <p:message for="bookPublishedDate" style="color:red"/>
+                <br/>
+
+                <p:inputText id="bookPrice" style="width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введіть ціну книжки"
+                             value="#{bookController.price}"
+                             required="true">
+                    <f:validateLength minimum="5" maximum="64"/>
+                </p:inputText>
+                <p:message for="bookPrice" style="color:red"/>
+                <br/>
+
+                <p:inputText id="bookRackNumber" style="width: 500px;height: 35px; margin-left: 180px;"
+                             placeholder="Введіть номер полиці де знаходиться книжка"
+                             value="#{bookController.rackNumber}"
+                             required="true">
+                    <f:validateLength minimum="5" maximum="64"/>
+                </p:inputText>
+                <p:message for="bookRackNumber" style="color:red"/>
+                <br/>
+            </h:panelGrid>
+            <p:commandButton update="book-grid" value="Submit" style="margin-top: 10px; background-color: #39ADB4; width: 500px;height: 35px;
+                            margin-left: 180px; margin-bottom: 50px;"
+                             action="#{bookController.addBook()}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

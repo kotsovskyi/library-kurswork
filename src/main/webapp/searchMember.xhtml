@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <ui:composition template="WEB-INF/templates/adminTemp.xhtml">
+
+        <ui:define name="content">
+            <br/>
+            <h2 style="text-align: center;">Пошук читача</h2>
+
+            <h:form id="form-member">
+                <h:panelGrid id="p-grid" columns="1" columnClasses="wd">
+                    <p:inputText id="passport" placeholder="Введіть серію та номер паспорта (КС816297) або студентського"
+                                 style="margin-top: 10px; width: 500px;height: 35px; margin-left: 180px;"
+                                 required="true" value="#{memberController.passport}"
+                                 requiredMessage="#{msgsReg.memberPassportRequired}"
+                                 validatorMessage="#{msgsReg.memberPassportLength}">
+                        <f:validateLength minimum="8" maximum="10"/>
+                    </p:inputText>
+
+                    <p:message style="margin-top: 3px;width: 500px;margin-left: 180px;margin-bottom: 12px;"
+                               for="passport" display="text"/>
+                </h:panelGrid>
+                <p:commandButton value="Пошук"
+                                 style="width: 500px; height: 35px;margin-bottom: 25px;margin-left: 180px;"
+                                 action="#{memberController.findByPassport()}" update="p-grid" onclick="setHiddenValue();"/>
+
+            </h:form>
+
+            <script type="text/javascript">
+                function setHiddenValue(){
+                    var roman = document.getElementById('form-member:passport').value;
+
+
+                        if(('' + roman).length == 8) {
+                            PF('bookFin').hide();
+                            alert(roman);
+
+                        }
+                        if(('' + roman).length == 10) {
+                            PF('bookFin').hide();
+                            alert(roman);
+
+                        }
+
+                }
+            </script>
+
+
+            <ui:insert widgetVar="bookFin" resizable="false">
+                <ui:include src="memberFined.xhtml"/>
+            </ui:insert>
+
+
+        </ui:define>
+
+    </ui:composition>
+</html>

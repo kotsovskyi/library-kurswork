@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="FishTC" />
+          <element id="module-output" name="Library" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
@@ -79,7 +79,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/FishTC-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="FishTC/web/Web" />
+      <element id="javaee-facet-resources" facet="Library/web/Web" />
     </root>
   </artifact>
 </component>

@@ -1,87 +1,72 @@
 package com.kotsovskyi.edu.bean;
 
-
 import org.springframework.context.annotation.Scope;
 
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Named("msgs")
+@Named("msgsReg")
 @Scope("session")
 public class MessageBean implements Serializable{
+	private final String nameRequired = "Поле ім'я не може бути порожнім";
+	private final String nameLength = "Довжина ім'я повинна бути від 10 до 64 символів";
 
-	private final String itemRequired = "Item field could not be empty";
-	private final String orderWeightRequired = "Order weight field could not be empty";
-	private final String weightRange = "Weight field is not between the expected values of 0.10 and availible weight";
-	private final String weightRange1 = "Weight field is not between the expected values of 0.10 and availible weight";
-	private final String prepaymentTypeRequired = "Prepayment type field could not be empty";
-	private final String prepaymentTypeRange = "Prepayment type field is not between the expected values between 1 and 3";
-	private final String priceRequired = "Price field could not be empty";
-	private final String priceRange = "Price field is not between the expected values between 1 and 3";
-	private final String delWeightRequired = "Delivered weight field could not be empty";
-	private final String shipNameRequired = "Ship name field could not be empty";
-	private final String delWeightRange = "Weight field is not between the expected values of 0.10 and ordered weight + 100";
-	private final String priceRange1 = "Price field can't be more then 1000. Talk to General manager otherwise!";
-	private final String nameRequired = "Item field could not be empty";
-	private final String nameLenght = "Name lenght should be between 4 and 127 symbols";
-	private final String roleRequired = "Role field could not be empty";
-	private final String roleNumb = "Role field should be number between 1 and 4";
+	private final String emailRequired = "Поле e-mail не може бути порожнім";
+	private final String emailLength = "Довжина e-mail повинна бути від 10 до 64 символів";
+
+	private final String passwordRequired = "Поле password не може бути порожнім";
+	private final String passwordLength = "Довжина password повинна бути від 7 до 30 символів";
+
+	private final String bookIdRequired = "Поле ISBN не може бути порожнім";
+	private final String bookIdLength = "Довжина ISBN повинна складати 13 цифр";
+	private final String bookIdType = "ISBN не містить символів, тільки цифри";
+
+	private final String memberPassportRequired = "Поле паспорт не може бути порожнім";
+	private final String memberPassportLength = "паспорт - 8 символів, студентський - 10 символів";
 	
-	public String getRoleRequired() {
-		return roleRequired;
-	}
-
-	public String getRoleNumb() {
-		return roleNumb;
-	}
-
-	public String getNameRequired() {
+	public MessageBean(){}
+	
+	public String getNameRequired(){
 		return nameRequired;
 	}
-
-	public String getNameLenght() {
-		return nameLenght;
-	}
-
-	public MessageBean(){   }
 	
-	public String getItemRequired(){
-		return itemRequired;
+	public String getEmailRequired(){
+		return emailRequired;
 	}
 	
-	public String getOrderWeightRequired(){
-		return orderWeightRequired;
-	}
-
-	public String getWeightRange() {
-		return weightRange;
+	public String getPasswordRequired(){
+		return passwordRequired;
 	}
 	
-	public String getWeightRange1(){
-		return weightRange1;
+	public String getPasswordLength(){
+		return passwordLength;
 	}
-	public String getPrepaymentTypeRequired(){
-		return prepaymentTypeRequired;
+	
+	public String getNameLength(){
+		return nameLength;
 	}
-	public String getPrepaymentTypeRange(){
-		return prepaymentTypeRange;
+
+	public String getEmailLength() {
+		return emailLength;
 	}
-	public String getPriceRequired(){
-		return priceRequired;
+
+	public String getBookIdRequired() {
+		return bookIdRequired;
 	}
-	public String getPriceRange(){
-		return priceRange;
+
+	public String getBookIdLength() {
+		return bookIdLength;
 	}
-	public String getDelWeightRequired(){
-		return delWeightRequired;
+
+	public String getBookIdType() {
+		return bookIdType;
 	}
-	public String getShipNameRequired(){
-		return shipNameRequired;
+
+	public String getMemberPassportRequired() {
+		return memberPassportRequired;
 	}
-	public String getDelWeightRange(){
-		return delWeightRange;
-	}
-	public String getPriceRange1(){
-		return priceRange1;
+
+	public String getMemberPassportLength() {
+		return memberPassportLength;
 	}
 }
